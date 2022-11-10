@@ -219,22 +219,36 @@ selectionBtn.addEventListener('click', (e) => {
 
   formula.innerHTML = `
   <div id="bckContact"></div>
-  <div style="background-color: #DB8876; max-width: 300px; text-align: center; padding: 10px; position: fixed; top: 0; z-index: 1; display: grid; right: 50%;">
-    <p>Contactez moi</p><br>
-    <p>${filteredPhotographer.name}</p>
+  <div style="background-color: #DB8876;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  top: 20px;
+  z-index: 1;
+  display: grid;
+  border: 1px solid #888;
+  width: 50%;
+  margin-left: 21%;
+  bottom: 0;">
+  <header id="headerText">
+    <p id="SizeTextP">Contactez moi, <br><span>${filteredPhotographer.name}</span></p>
+    <a href="http://localhost:1234/photographer.html?id=${id}" class="close-button">X</a>
+    </header>
+    
   <div>
-  <p>Prénom</p>
+  <p id="textFormula">Prénom</p>
   <input id="firstname" /> 
   <br>
-  <p>Nom</p>
+  <p id="textFormula">Nom</p>
   <input id="Nname" />
   <br>
-  <p>Email</p>
+  <p id="textFormula">Email</p>
   <input id="eMail" />
   <br>
-  <p>Votre message</p>
+  <p id="textFormula">Votre message</p>
   <textarea id="textArea"></textarea>
   <br><br>
+  <p id="EndFormula"></p>
   <button id="formulaBtn">Envoyer</button>
   </div>`;
 
@@ -265,6 +279,17 @@ formula.addEventListener('submit', function (e) {
 
   const elements = Array.from(e.target.elements);
   console.log(elements);
+
+  let templateMsg = [];
+  const EndMsgFormula = document.querySelector('#EndFormula');
+
+  elements.forEach(function({
+    value
+  }) {
+
+    console.log(value);
+    EndMsgFormula.innerHTML = `Formulaire envoyer!`;
+  });
 
 
 });
